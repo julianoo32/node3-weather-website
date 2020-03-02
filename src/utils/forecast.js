@@ -11,7 +11,10 @@ const forecast = (latitude, longtitude, callBack) => {
        }else{
           const {precipProbability ,temperature }  = body.currently;
           const dailySummary = body.daily.data[0].summary;
-          const result = dailySummary+" It is currently "+temperature+" degrees out. There is a "+precipProbability+"% of rain"; 
+          const tempHgh = body.daily.data[0].temperatureHigh;
+          const tempLow = body.daily.data[0].temperatureLow;
+          
+          const result = dailySummary+" It is currently "+temperature+" degrees out. There is a "+precipProbability+"% of rain. Highest Temperature: "+tempHgh+". Lowest Temperature: "+tempLow; 
           callBack(undefined, result)
        }
  
